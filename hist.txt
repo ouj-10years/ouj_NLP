@@ -1,0 +1,51 @@
+    1  sudo apt-get update
+    2  sudo apt-get upgrade
+    5  wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+    6  sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+    7  wget https://developer.download.nvidia.com/compute/cuda/11.4.1/local_installers/cuda-repo-ubuntu2004-11-4-local_11.4.1-470.57.02-1_amd64.deb
+    9  sudo dpkg -i cuda-repo-ubuntu2004-11-4-local_11.4.1-470.57.02-1_amd64.deb
+   10  sudo apt-key add /var/cuda-repo-ubuntu2004-11-4-local/7fa2af80.pub
+   11  sudo apt-get update
+   12  nvidia-smi
+   13  sudo apt-get -y install cuda-drivers
+   14  nvidia-smi
+   19  sudo apt-get install curl
+   20  curl https://get.docker.com/ | sh
+   21  docker --version
+   23  distribution=$(. /etc/os-release;echo $ID$VERSION_ID)    && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -    && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+   24  sudo apt-get update
+   25  sudo apt-get install -y nvidia-docker2
+   26  sudo systemctl restart docker
+   28  sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
+   30  sudo apt install ./code_1.59.0-1628120042_amd64.deb 
+   31  code
+   32  cd ~/workspace/ouj_nlp/
+   36  sudo docker build -t ouj_nlp .
+   38  sudo docker run -it --gpus all --rm -p 8888:8888 ouj_nlp
+   39  cd ~/Desktop/
+   40  sudo apt-get update
+   41  sudo apt-get install -y     build-essential     libseccomp-dev     pkg-config     squashfs-tools     cryptsetup
+   42  export VERSION=1.16.7 OS=linux ARCH=amd64
+   43  wget -O /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz   https://dl.google.com/go/go${VERSION}.${OS}-${ARCH}.tar.gz
+   44  sudo tar -C /usr/local -xzf /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz
+   45  echo 'export GOPATH=${HOME}/go' >> ~/.bashrc
+   46  echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc
+   47  source ~/.bashrc
+   48  curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
+   50  sudo apt install git
+   51  git clone https://github.com/sylabs/singularity.git
+   52  cd singularity
+   53  ./mconfig
+   54  make -C builddir
+   55  sudo make -C builddir install
+   56  singularity --version
+   57  cd ../
+   58  sudo docker pull registry
+   59  sudo docker run -d -p 5000:5000 --name registry_server registry
+   62  sudo docker tag ouj_nlp localhost:5000/ouj_nlp
+   63  sudo docker push localhost:5000/ouj_nlp
+   64  cd ../workspace/ouj_nlp/
+   68  SINGULARITY_NOHTTPS=true NO_PROXY=localhost singularity pull docker://localhost:5000/ouj_nlp
+   72  singularity shell --nv ouj_nlp_latest.sif 
+   73  sudo apt-get install ibus-mozc
+   74  sudo apt-get install mozc-utils-gui
