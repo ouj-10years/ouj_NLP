@@ -30,3 +30,5 @@ https://pyknp.readthedocs.io/en/latest/pyknp.knp.html
 https://github.com/sylabs/singularity/blob/master/INSTALL.md
 
 https://icts.nagoya-u.ac.jp/ja/sc/pdf/singularity.pdf
+
+https://github.com/hpcng/singularity/issues/1537
