@@ -35,3 +35,5 @@ https://github.com/sylabs/singularity/blob/master/INSTALL.md
 https://icts.nagoya-u.ac.jp/ja/sc/pdf/singularity.pdf
 
 https://github.com/hpcng/singularity/issues/1537
+
+https://qiita.com/kawazu191128/items/0eda32f43c42135cc35d ・・・DockerイメージからSingularityイメージへの変換、`docker-daemon`使うとlocalhostにdocker registryとか立ててあげなくても簡単にできそう。
