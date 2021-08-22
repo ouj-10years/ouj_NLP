@@ -27,6 +27,8 @@ https://nlp.ist.i.kyoto-u.ac.jp/?JUMAN
 
 https://pyknp.readthedocs.io/en/latest/pyknp.knp.html
 
+https://qiita.com/mkt3/items/b9f86f5ddf9eb0f43608
+
 https://github.com/sylabs/singularity/blob/master/INSTALL.md
 
 https://icts.nagoya-u.ac.jp/ja/sc/pdf/singularity.pdf
