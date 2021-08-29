@@ -6,6 +6,7 @@ https://www.youtube.com/watch?v=oedIDo8m428
 
 - 環境構築のメインとなるDockerイメージの中身は`Dockerfile`参照。
 - 実行したコードは`hist.txt`参照。
+  - DockerイメージからSingularityへの変換は、動画だとまどろっこしい方法を紹介していますが`hist.txt`では最も簡単な方法に変更しています。
 - DockerやSingylarityの動作確認に使用したipynbファイルは`docker_test.ipynb`参照。
 
 ### 参考リンク
