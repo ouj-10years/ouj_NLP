@@ -39,13 +39,8 @@
    54  make -C builddir
    55  sudo make -C builddir install
    56  singularity --version
-   57  cd ../
-   58  sudo docker pull registry
-   59  sudo docker run -d -p 5000:5000 --name registry_server registry
-   62  sudo docker tag ouj_nlp localhost:5000/ouj_nlp
-   63  sudo docker push localhost:5000/ouj_nlp
-   64  cd ../workspace/ouj_nlp/
-   68  SINGULARITY_NOHTTPS=true NO_PROXY=localhost singularity pull docker://localhost:5000/ouj_nlp
+   64  cd ~/workspace/ouj_nlp/
+   68  sudo singularity build ouj_nlp_latest.sif docker-daemon://ouj_nlp:latest
    72  singularity shell --nv ouj_nlp_latest.sif 
    73  sudo apt-get install ibus-mozc
    74  sudo apt-get install mozc-utils-gui
